@@ -10,8 +10,13 @@ public class ScoreManager : MonoBehaviour
     public static int score = 0;
 
     public Text textbox;
- 
 
+    void Start()
+    {
+        gameOver = false;
+        won = false;
+        score = 0;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +37,7 @@ public class ScoreManager : MonoBehaviour
         {
             if (won)
             {
-                textbox.text = "You win!\n Press R to try again!";
+                textbox.text = "You win!\nPress R to try again!";
             }
             else
             {
@@ -40,7 +45,9 @@ public class ScoreManager : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.R))
             {
+                Start();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
             }
         }
     }
