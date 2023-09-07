@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Julian Avila
+//Prototype 1
+//Signals the score manager that the player has reached the state of game over
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

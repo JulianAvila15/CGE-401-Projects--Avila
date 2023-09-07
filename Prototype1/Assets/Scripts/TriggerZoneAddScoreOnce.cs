@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Julian Avila
+//Prototype 1
+//Allows the player to earn points when the player collides with a trigger zone
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

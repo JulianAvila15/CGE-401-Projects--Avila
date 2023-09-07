@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Julian Avila
+//Prototype 1
+//Manages score and losses of the player
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

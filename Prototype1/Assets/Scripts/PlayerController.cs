@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Julian Avila
+//Prototype 1
+//Allows player to move vehicle
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

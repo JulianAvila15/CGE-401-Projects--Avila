@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Julian Avila
+//Prototype 1
+//Allows camera to follow player with some offset distance
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
