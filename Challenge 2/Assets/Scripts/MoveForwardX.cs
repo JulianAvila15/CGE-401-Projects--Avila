@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Julian Avila
+ * Prototype 2
+ * Moves ball forward
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

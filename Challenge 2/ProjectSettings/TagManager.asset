@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dog
-  - HealthManager
+  - ScoreManager
+  - DisplayScoreText
+  - HealthSystem
+  - GameOverManager
   layers:
   - Default
   - TransparentFX

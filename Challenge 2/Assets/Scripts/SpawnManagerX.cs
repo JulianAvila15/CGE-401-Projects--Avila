@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Julian Avila
+ * Challenge 2
+ * Spawns balls in a random position
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +18,11 @@ public class SpawnManagerX : MonoBehaviour
     private float startDelay = 1.0f;
     private float spawnInterval = 4.0f;
 
+    public GameOverManager gameOverManager;
     // Start is called before the first frame update
     void Start()
     {
-       StartCoroutine(SpawnRandomBallwithCoroutine());
+        StartCoroutine(SpawnRandomBallwithCoroutine());
     }
 
     IEnumerator SpawnRandomBallwithCoroutine()
@@ -24,7 +30,7 @@ public class SpawnManagerX : MonoBehaviour
         //add a 3 second delay before first spawning objects
         yield return new WaitForSeconds(3f);
 
-        while (true)
+        while (!gameOverManager.gameOver)
         {
             SpawnRandomBall();
             float randomDelay = Random.Range(3.0f, 5.0f);
