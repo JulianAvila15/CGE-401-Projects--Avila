@@ -13,6 +13,7 @@ public class GameOverManager : MonoBehaviour
     private DisplayScore scoreScript;
     public bool gameOver = false;
     public GameObject gameOverText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +27,15 @@ public class GameOverManager : MonoBehaviour
     {
         if (healthSystemScript.health <= 0||scoreScript.score>=5)
         {
+            
             gameOver = true;
-            gameOverText.SetActive(true);      
+            gameOverText.SetActive(true);
+
+
+            if(scoreScript.score >= 5)
+            gameOverText.GetComponent<Text>().text = "You win! \n Press R to Restart";
+            else if (healthSystemScript.health <= 0)
+                gameOverText.GetComponent<Text>().text = "You lose! \n Press R to Restart";
 
             //Press R to restart if game is over
             if (Input.GetKeyDown(KeyCode.R))
