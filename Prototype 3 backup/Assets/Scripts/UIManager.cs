@@ -58,6 +58,8 @@ public class UIManager : MonoBehaviour
             playerControllerScript.StopRunning();
 
             scoreText.text = "You Win!" + "\n" + "Press R to try again!";
+
+            //Once the player wins he no longer needs to be running
             playerControllerScript.playerAnimator.SetFloat("Speed_f", 0.0f);
         }
 
