@@ -47,7 +47,6 @@ public class PlayerControllerX : MonoBehaviour
         if (ScoreManager.won == true)
         {
             playerRb.MovePosition(new Vector3(transform.position.x, transform.position.y, transform.position.z));
-            Physics.gravity *= 0.0f;
         }
     }
 

@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Start();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
 
             }
         }
