@@ -18,5 +18,6 @@ public class TextScoreDisplay : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score: "+ GemBehaviour.score;
+        
     }
 }
