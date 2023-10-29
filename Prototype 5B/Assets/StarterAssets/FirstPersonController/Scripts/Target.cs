@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float health = 50f;
+    public float health;
 
 
     // Start is called before the first frame update
@@ -25,6 +25,11 @@ public class Target : MonoBehaviour
         health -= amount;
         if (health <= 0)
             Die();
+    }
+
+    public virtual void InitVariables()
+    {
+        health = 50f;
     }
 
     private void Die()

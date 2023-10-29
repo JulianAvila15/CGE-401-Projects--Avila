@@ -1,3 +1,7 @@
+/*Julian Avila
+ * Prototype 5B
+ * Allows players to shoot with raycasts*/
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +24,7 @@ public class ShootWithRayCasts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")&&GameObject.FindGameObjectWithTag("Player")!=null)
         {
             Shoot();
         }
