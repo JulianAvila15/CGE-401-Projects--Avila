@@ -1,3 +1,6 @@
+/*Julian Avila
+Prototype 5B
+Gives shootable objects health and a force*/
 using System;
 using System.Collections;
 using System.Collections.Generic;
