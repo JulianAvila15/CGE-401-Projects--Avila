@@ -1,3 +1,6 @@
+/*Julian Avila
+Prototype 5B
+Informs the player when they win and when they can restart the game once collided with the win zone*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
