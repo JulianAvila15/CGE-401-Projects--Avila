@@ -1,3 +1,6 @@
+/*Julian Avila
+Prototype 5B
+Manages the game*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
