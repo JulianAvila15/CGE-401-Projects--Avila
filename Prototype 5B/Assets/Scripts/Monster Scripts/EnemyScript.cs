@@ -10,18 +10,19 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     private NavMeshAgent agent = null;
-   [SerializeField] private GameObject target;
+    private GameObject target;
     [SerializeField] private float stoppingDistance = 2.5f;
-      private MonsterStats stats = null;
+     private MonsterHealthSystem stats = null;
      private Animator anim = null;
     float distanceToTarget;
+  
 
 
     // Start is called before the first frame update
     void Start()
     {
         ObtainReferences();
-        
+        target = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -29,9 +30,15 @@ public class EnemyScript : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
-            MoveToTarget();
+
             distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
+
+            if (anim.GetBool("IsDead") != true&&distanceToTarget<20)
+            MoveToTarget();
+           
+
         }
+
     }
 
     void MoveToTarget()
@@ -50,10 +57,10 @@ public class EnemyScript : MonoBehaviour
        
     }
 
-    void AttackTarget(MonsterStats statsDamage)
+    void AttackTarget(MonsterHealthSystem statsDamage)
     {
         anim.SetTrigger("Attack");
-        target.GetComponent<PlayerStats>().TakeDamage((statsDamage.damage)/60);
+        target.GetComponent<PlayerHealthSystem>().TakeDamage((statsDamage.damage)/300);
     }
 
     void RotateToTarget()
@@ -65,7 +72,7 @@ public class EnemyScript : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
-        stats = GetComponent<MonsterStats>();
+        stats = GetComponent<MonsterHealthSystem>();
     }
 
 }

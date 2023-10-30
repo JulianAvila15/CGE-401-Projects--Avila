@@ -20,7 +20,7 @@ public class Target : MonoBehaviour
         
     }
 
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         health -= amount;
         if (health <= 0)
@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
         health = 50f;
     }
 
-    private void Die()
+    public void Die()
     {
         Destroy(gameObject);
     }
