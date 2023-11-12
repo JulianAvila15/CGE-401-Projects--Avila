@@ -10,6 +10,7 @@ TagManager:
   - Monster
   - Ground
   - Obstacle
+  - Boundary
   layers:
   - Default
   - TransparentFX
