@@ -4,30 +4,20 @@ using UnityEngine.SceneManagement;
 public class NewGameManager : Singleton<NewGameManager>
 {
     public static NewGameManager instance;
+    public static bool gameOver;
     public  int score;
-
+   
     public GameObject pauseMenu;
 
     //variable to keep track of what level we are on
     private string CurrentLevelName = string.Empty;
 
-    //#region this code makes this class a singleton
-    //private void Awake()
-    //{
-    //    if(instance==null)
-    //    {
-    //        instance = this;
 
-    //        //make sure this game manager persists across scenes
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //        Debug.Log("Trying to instantiate a second\n instance of game manager");
-    //    }
-    //}
-    //#endregion
+    private void Start()
+    {
+        score = 0;
+        gameOver = false;
+    }
 
     //methods to load and unload scenes
     public void LoadLevel(string levelName)

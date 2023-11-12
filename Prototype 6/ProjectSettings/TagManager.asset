@@ -8,6 +8,8 @@ TagManager:
   - Monster 1
   - Win zone
   - Monster
+  - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX
