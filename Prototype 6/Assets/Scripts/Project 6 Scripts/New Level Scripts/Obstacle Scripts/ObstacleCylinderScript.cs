@@ -7,13 +7,13 @@ public class ObstacleCylinderScript : BaseObstacle
     // Start is called before the first frame update
     void Start()
     {
-        movementSpeed = 4.0f;
+        movementSpeed = 5.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!NewGameManager.gameOver)
+        if (NewGameManager.gameOver == false)
         {
             MoveTowardsPlayer(movementSpeed);
         }

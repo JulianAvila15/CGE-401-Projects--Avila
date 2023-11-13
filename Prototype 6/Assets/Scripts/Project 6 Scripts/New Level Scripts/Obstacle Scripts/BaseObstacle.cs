@@ -26,6 +26,7 @@ public class BaseObstacle : MonoBehaviour
 
    protected void MoveTowardsPlayer(float speedOfMovement)
     {
+        if(NewGameManager.gameOver == false)
         transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
     }
 

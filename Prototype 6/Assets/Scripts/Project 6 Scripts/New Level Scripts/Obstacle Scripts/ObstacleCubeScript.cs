@@ -13,7 +13,7 @@ public class ObstacleCubeScript : BaseObstacle
     // Update is called once per frame
     void Update()
     {
-        if(!NewGameManager.gameOver)
+        if(NewGameManager.gameOver == false)
         {
             MoveTowardsPlayer(movementSpeed);
         }

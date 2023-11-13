@@ -13,7 +13,6 @@ public class SpawnManager : MonoBehaviour
 {
     public BaseObstacle[] obstaclePrefabs;//Polymorphised class, "BaseObstacle"
     [SerializeField] private Transform[] spawnLocations;
-    private Vector3 spawnPosition = new Vector3(25, 0, 0);
     private float startDelay = 2.0f, repeatRate = 2.0f;
     private int randomPrefabIndex;
     // Start is called before the first frame update
@@ -41,7 +40,7 @@ public class SpawnManager : MonoBehaviour
 
         while (NewGameManager.gameOver == false)
         {
-            float delay = 8f;
+            float delay = 4f;
             SpawnRandomObstacle();
             yield return new WaitForSeconds(delay);
 
@@ -52,18 +51,8 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomObstacle()
     {
         int prefabIndex = Random.Range(0, obstaclePrefabs.Length);
-        int locationIndex = Random.Range(0, spawnLocations.Length);
 
-        
-
-        spawnPosition = spawnLocations[locationIndex].position;
-
-        //if object is cone and it is spawned on the right side
-        if (obstaclePrefabs[prefabIndex].GetComponent<ObstacleConeScript>()!=null && spawnLocations[locationIndex].name == "SpawnZone2")
-        {
-            Instantiate(obstaclePrefabs[prefabIndex], spawnPosition, Quaternion.Euler(180,180,0));
-        }
-        else
-        Instantiate(obstaclePrefabs[prefabIndex], spawnPosition, spawnLocations[locationIndex].rotation);
+            Instantiate(obstaclePrefabs[prefabIndex], spawnLocations[1].position, Quaternion.Euler(180, 180, 0));
+            Instantiate(obstaclePrefabs[prefabIndex], spawnLocations[0].position, Quaternion.Euler(0, 180, 0));
     }
 }

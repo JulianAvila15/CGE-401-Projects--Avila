@@ -12,7 +12,7 @@ using UnityEngine;
 public abstract class BaseCube : MonoBehaviour,IDamagable
 {
     protected float jumpHeight;
-    protected int health;
+    public float health;
     protected Rigidbody rb;
     protected bool isGrounded,gotHit;
     [SerializeField] protected Material normal,blink;
@@ -20,11 +20,13 @@ public abstract class BaseCube : MonoBehaviour,IDamagable
     protected abstract void OnCollisionEnter(Collision collision);
 
     protected abstract void OnTriggerEnter(Collider collision);
+
+
     // Start is called before the first frame update
     void Start()
     {
         jumpHeight = 3.0f;
-        health = 3;
+        health = 100;
         isGrounded = false;
         gotHit = false;
     }
@@ -36,12 +38,12 @@ public abstract class BaseCube : MonoBehaviour,IDamagable
     }
 
     //Implemented from interface
-    public void TakeDamage(int amount)
+
+    public virtual void TakeDamage(int amount)
     {
         health -= amount;
     }
 
-  
 
 
 }

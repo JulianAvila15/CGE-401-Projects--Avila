@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 public class NewGameManager : Singleton<NewGameManager>
 {
     public static NewGameManager instance;
-    public static bool gameOver;
-    public  int score;
-   
+    public static bool gameOver,won;
+    public int score;
+    public static int firstPlayerScore, secondPlayerScore;
+
     public GameObject pauseMenu;
 
     //variable to keep track of what level we are on
@@ -15,9 +16,11 @@ public class NewGameManager : Singleton<NewGameManager>
 
     private void Start()
     {
-        score = 0;
+        score = firstPlayerScore = secondPlayerScore = 0;
         gameOver = false;
     }
+
+
 
     //methods to load and unload scenes
     public void LoadLevel(string levelName)
@@ -79,6 +82,14 @@ public class NewGameManager : Singleton<NewGameManager>
         if(Input.GetKeyDown(KeyCode.P))
         {
             Pause();
+        }
+
+        if (gameOver == true && Input.GetKeyDown(KeyCode.R))
+        {
+            Start();
+            UnloadCurrentLevel();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level 4");
+
         }
     }
 
