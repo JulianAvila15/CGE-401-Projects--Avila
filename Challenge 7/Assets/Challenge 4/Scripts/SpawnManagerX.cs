@@ -15,18 +15,33 @@ public class SpawnManagerX : MonoBehaviour
     public int waveCount = 1;
 
 
-    public GameObject player; 
+
+    public GameObject player;
+
+    private void Start()
+    {
+        waveCount = 1;
+        SpawnEnemyWave(waveCount);
+
+    }
 
     // Update is called once per frame
     void Update()
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-
-        if (enemyCount == 0)
+        if (waveCount > 10)
         {
-            SpawnEnemyWave(waveCount);
+            GameManager.gameOver = true;
         }
 
+        if (enemyCount == 0 &&  (GameManager.enemyScore < waveCount&&GameManager.gameOver==false))
+        {
+            waveCount++;
+            SpawnEnemyWave(waveCount);
+           
+        }
+
+       
     }
 
     // Generate random spawn position for powerups and enemy balls
@@ -49,13 +64,13 @@ public class SpawnManagerX : MonoBehaviour
         }
 
         // Spawn number of enemy balls based on wave number
-        for (int i = 0; i < waveCount; i++)
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
             enemyPrefab.GetComponent<EnemyX>().speed += 2;
             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
 
-        waveCount++;
+        GameManager.enemyScore = 0;
         ResetPlayerPosition(); // put player back at start
 
     }

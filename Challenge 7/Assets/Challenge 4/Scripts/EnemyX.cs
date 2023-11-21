@@ -28,11 +28,14 @@ public class EnemyX : MonoBehaviour
     {
         // If enemy collides with either goal, destroy it
         if (other.gameObject.name == "Enemy Goal")
-        {
+        { 
             Destroy(gameObject);
         } 
         else if (other.gameObject.name == "Player Goal")
         {
+            //If the enemy is the last enemy
+            GameManager.enemyScore++;
+            Debug.Log(GameManager.enemyScore);
             Destroy(gameObject);
         }
 
